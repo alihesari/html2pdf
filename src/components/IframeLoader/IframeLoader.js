@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import ReactDOM from 'react-dom'
 import PropTypes from "prop-types";
 
+import "./IframeLoader.scss";
+
 class IframeLoader extends Component {
   constructor(props) {
     super(props);

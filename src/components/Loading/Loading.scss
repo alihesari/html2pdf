@@ -1,27 +1,21 @@
 .loadingContainer {
-  position: absolute;
-  background-color: hsla(0, 0%, 100%, 0.65);
-  width: 100%;
-  height: 100%;
+
 }
 
 .loadingBox {
-    background-color: #2e3f50;
-    position: -webkit-sticky;
-    position: sticky;
-    top: 30%;
     margin: 0 auto;
     text-align: center;
     padding: 80px 0;
-    width: 500px;
-    
 }
 
 .loader {
-    color: #26A65B;
     display: flex;
     align-items: center;
     justify-content: center;
+    
+    h1 {
+        color: #26A65B;
+    }
 }
 
 .loadingMessages {

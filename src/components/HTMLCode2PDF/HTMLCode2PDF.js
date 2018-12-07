@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Redirect } from "react-router";
 import {
   Intent,
   Icon,
@@ -12,42 +11,30 @@ import {
   TextArea
 } from "@blueprintjs/core";
 import { handleFormChange } from "../Base/Base";
+import IframeLoader from "../IframeLoader/IframeLoader";
+import Loading from "../Loading/Loading";
 import "./HTMLCode2PDF.scss";
+import print from "../../utils/utils";
 
 const initialState = {
   htmlcode: "",
-  redirect: false
+  isLoading: false
 };
 
 class HTMLCode2PDF extends Component {
   constructor(props) {
     super(props);
     this.state = initialState;
-    this.handleForm = this.handleForm.bind(this);
+    this.handleLoadHTML = this.handleLoadHTML.bind(this);
   }
 
-  handleForm() {
-    const url = this.state.hasLogin ? this.state.dataPage : this.state.pageUrl;
-
+  async handleLoadHTML() {
     this.setState({
-      targetUrl: encodeURIComponent(url),
-      redirect: true
+      isLoading: true
     });
   }
 
   render() {
-    if (this.state.redirect) {
-      return (
-        <Redirect
-          to={{
-            pathname: `/extractors/handler`,
-            search: `?url=${this.state.targetUrl}`,
-            state: this.state
-          }}
-        />
-      );
-    }
-
     return (
       <>
         <FormGroup label="HTML Code" labelFor="htmlcode">
@@ -58,12 +45,21 @@ class HTMLCode2PDF extends Component {
             onChange={this.handleChange}
             name="htmlcode"
             rows={10}
-            style={{width: "100%"}}
+            style={{ width: "100%" }}
           />
         </FormGroup>
-        <Button intent={Intent.PRIMARY} onClick={this.handleForm}>
+        <Button intent={Intent.PRIMARY} onClick={this.handleLoadHTML} disabled={this.state.isLoading}>
           Load HTML
         </Button>
+
+        <div className="preview">
+          <Loading isLoading={this.state.isLoading} />
+          <IframeLoader
+            width="100%"
+            height="500"
+            onLoad={() => this.setState({ isLoading: false })}
+          />
+        </div>
       </>
     );
   }
