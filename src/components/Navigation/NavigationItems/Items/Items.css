@@ -1,0 +1,16 @@
+.items {
+    margin-right: 25px;
+}
+
+.items a{
+    text-decoration: none;
+    color: #4A90E2;
+}
+
+.items a.active{
+    color: #094FA1;
+}
+
+.items:hover a {
+    color: #094FA1;
+}
