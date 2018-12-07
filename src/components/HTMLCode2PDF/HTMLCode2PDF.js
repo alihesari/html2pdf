@@ -12,13 +12,12 @@ import {
 } from "@blueprintjs/core";
 import { handleFormChange } from "../Base/Base";
 import IframeLoader from "../IframeLoader/IframeLoader";
-import Loading from "../Loading/Loading";
 import "./HTMLCode2PDF.scss";
 import { print, injectHTML } from "../../utils/utils";
 
 const initialState = {
   htmlcode: "",
-  isLoading: true,
+  isLoading: false,
   iframeLoaded: false
 };
 
@@ -67,7 +66,6 @@ class HTMLCode2PDF extends Component {
         >
           Convert to PDF
         </Button>
-        <Loading isLoading={this.state.isLoading} />
 
         <div className="preview">
           <IframeLoader
