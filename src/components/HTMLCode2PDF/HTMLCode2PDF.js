@@ -14,7 +14,7 @@ import { handleFormChange } from "../Base/Base";
 import IframeLoader from "../IframeLoader/IframeLoader";
 import Loading from "../Loading/Loading";
 import "./HTMLCode2PDF.scss";
-import print from "../../utils/utils";
+import { print, injectHTML } from "../../utils/utils";
 
 const initialState = {
   htmlcode: "",
@@ -32,6 +32,8 @@ class HTMLCode2PDF extends Component {
     this.setState({
       isLoading: true
     });
+    
+    injectHTML(this.state.htmlcode);
   }
 
   render() {
@@ -48,13 +50,18 @@ class HTMLCode2PDF extends Component {
             style={{ width: "100%" }}
           />
         </FormGroup>
-        <Button intent={Intent.PRIMARY} onClick={this.handleLoadHTML} disabled={this.state.isLoading}>
+        <Button
+          intent={Intent.PRIMARY}
+          onClick={this.handleLoadHTML}
+          disabled={this.state.isLoading}
+        >
           Load HTML
         </Button>
 
         <div className="preview">
           <Loading isLoading={this.state.isLoading} />
           <IframeLoader
+            id="previewIframe"
             width="100%"
             height="500"
             onLoad={() => this.setState({ isLoading: false })}
