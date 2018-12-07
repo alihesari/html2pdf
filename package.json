@@ -1,18 +1,19 @@
 {
   "name": "html2pdf",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "dependencies": {
     "@blueprintjs/core": "^3.10.0",
     "html2canvas": "^1.0.0-alpha.12",
     "jspdf": "^1.4.1",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "build": "webpack --mode production",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
@@ -31,6 +32,7 @@
     "@babel/preset-env": "^7.2.0",
     "@babel/preset-react": "^7.0.0",
     "babel-loader": "^8.0.4",
+    "babel-plugin-emotion": "^10.0.4",
     "css-loader": "^2.0.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
