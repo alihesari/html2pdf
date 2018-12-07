@@ -18,7 +18,8 @@ import { print, injectHTML } from "../../utils/utils";
 
 const initialState = {
   htmlcode: "",
-  isLoading: false
+  isLoading: true,
+  iframeLoaded: false
 };
 
 class HTMLCode2PDF extends Component {
@@ -32,7 +33,7 @@ class HTMLCode2PDF extends Component {
     this.setState({
       isLoading: true
     });
-    
+
     injectHTML(this.state.htmlcode);
   }
 
@@ -57,14 +58,25 @@ class HTMLCode2PDF extends Component {
         >
           Load HTML
         </Button>
+        <Button
+          intent={Intent.SUCCESS}
+          onClick={this.handleConvert}
+          disabled={this.state.isLoading}
+          className="convertButton"
+          disabled={!this.state.iframeLoaded}
+        >
+          Convert to PDF
+        </Button>
+        <Loading isLoading={this.state.isLoading} />
 
         <div className="preview">
-          <Loading isLoading={this.state.isLoading} />
           <IframeLoader
             id="previewIframe"
             width="100%"
             height="500"
-            onLoad={() => this.setState({ isLoading: false })}
+            onLoad={() =>
+              this.setState({ isLoading: false, iframeLoaded: true })
+            }
           />
         </div>
       </>

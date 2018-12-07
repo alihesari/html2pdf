@@ -13,7 +13,7 @@ const Loading = props => {
             <SyncLoader
               color="#26A65B"
               sizeUnit={"px"}
-              size={10}
+              size={7}
               margin="4px"
               loading={props.isLoading}
             />
