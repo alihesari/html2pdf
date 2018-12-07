@@ -18,6 +18,7 @@ import { print, injectHTML } from "../../utils/utils";
 const initialState = {
   htmlcode: "",
   isLoading: false,
+  isConverting: false,
   iframeLoaded: false
 };
 
@@ -26,14 +27,30 @@ class HTMLCode2PDF extends Component {
     super(props);
     this.state = initialState;
     this.handleLoadHTML = this.handleLoadHTML.bind(this);
+    this.handleConvert = this.handleConvert.bind(this);
+  }
+
+  changeLoadingStatus() {
+    this.setState({
+      isLoading: !this.state.isLoading
+    });
   }
 
   async handleLoadHTML() {
-    this.setState({
-      isLoading: true
-    });
+    this.changeLoadingStatus();
 
     injectHTML(this.state.htmlcode);
+  }
+
+  handleConvert() {
+    this.setState({
+      isConverting: true
+    });
+    print().then(() => {
+      this.setState({
+        isConverting: false
+      });
+    });
   }
 
   render() {
@@ -65,9 +82,9 @@ class HTMLCode2PDF extends Component {
           className="convertButton"
           disabled={!this.state.iframeLoaded}
           icon="build"
-          
+          loading={this.state.isConverting}
         >
-          Convert to PDF
+          Convert HTML to PDF
         </Button>
 
         <div className="preview">
