@@ -53,7 +53,8 @@ class HTMLCode2PDF extends Component {
         <Button
           intent={Intent.PRIMARY}
           onClick={this.handleLoadHTML}
-          disabled={this.state.isLoading}
+          loading={this.state.isLoading}
+          icon="refresh"
         >
           Load HTML
         </Button>
@@ -63,6 +64,8 @@ class HTMLCode2PDF extends Component {
           disabled={this.state.isLoading}
           className="convertButton"
           disabled={!this.state.iframeLoaded}
+          icon="build"
+          
         >
           Convert to PDF
         </Button>
