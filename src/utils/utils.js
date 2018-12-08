@@ -30,3 +30,9 @@ export const readHTMLFile = file => {
     injectHTML(res);
   });
 };
+
+export const setUrl = url => {
+  console.log(url);
+  
+  document.getElementById("previewIframe").src = url;
+};

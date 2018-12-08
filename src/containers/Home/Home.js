@@ -27,13 +27,6 @@ class Home extends Component {
             <Icon icon="code-block" /> <br /> Convert HTML file
           </Text>
         );
-
-      case "url":
-        return (
-          <Text className="nabarTabIcon">
-            <Icon icon="link" /> <br /> Convert URL to PDF
-          </Text>
-        );
     }
   }
 
@@ -62,11 +55,6 @@ class Home extends Component {
               id="file"
               title={this.renderNabarTabTitle("file")}
               panel={<HTMLFile2PDF />}
-            />
-            <Tab
-              id="url"
-              title={this.renderNabarTabTitle("url")}
-              panel={<HTMLCode2PDF />}
             />
             <Tabs.Expander />
           </Tabs>
