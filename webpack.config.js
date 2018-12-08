@@ -1,4 +1,3 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
 const webpack = require("webpack");
 
 module.exports = {
@@ -51,10 +50,7 @@ module.exports = {
     filename: "bundle.js"
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    // new HtmlWebPackPlugin({
-    //   template: "./dist/index.html"
-    // })
+    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     contentBase: "./dist",
