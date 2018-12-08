@@ -52,9 +52,9 @@ module.exports = {
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new HtmlWebPackPlugin({
-      template: "./dist/index.html"
-    })
+    // new HtmlWebPackPlugin({
+    //   template: "./dist/index.html"
+    // })
   ],
   devServer: {
     contentBase: "./dist",
