@@ -5,7 +5,8 @@
   <br/>
   <br/>
 </h1>
-# HTML2PDF
+
+## About
 
 HTML2PDF converter is an open source React JS project. HTML2PDF helps you convert HTML codes and HTML files to PDF.
 
