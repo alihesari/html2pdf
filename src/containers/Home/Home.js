@@ -1,10 +1,39 @@
 import React, { Component } from "react";
-import { Button } from "@blueprintjs/core";
+import { Tab, Tabs, Text, Icon } from "@blueprintjs/core";
 
 import "./Home.scss";
 import HTMLCode2PDF from "../../components/HTMLCode2PDF/HTMLCode2PDF";
 
 class Home extends Component {
+  state = {
+    navbarTabId: "code"
+  };
+
+  renderNabarTabTitle(id) {
+    switch (id) {
+      case "code":
+        return (
+          <Text className="nabarTabIcon">
+            <Icon icon="code" /> <br /> Convert HTML code
+          </Text>
+        );
+
+      case "file":
+        return (
+          <Text className="nabarTabIcon">
+            <Icon icon="code-block" /> <br /> Convert HTML file
+          </Text>
+        );
+
+      case "url":
+        return (
+          <Text className="nabarTabIcon">
+            <Icon icon="link" /> <br /> Convert URL to PDF
+          </Text>
+        );
+    }
+  }
+
   render() {
     return (
       <div className="page">
@@ -13,11 +42,33 @@ class Home extends Component {
           <h2>Convert web pages or HTML files to PDF documents</h2>
         </div>
         <div className="htmlcode2pdf">
-            <HTMLCode2PDF />
+          <Tabs
+            animate={true}
+            onChange={this.handleNavbarTabChange}
+            selectedTabId="code"
+            id="navbar"
+            className="navbar"
+            selectedTabId={this.state.navbarTabId}
+          >
+            <Tab
+              id="code"
+              title={this.renderNabarTabTitle("code")}
+              panel={<HTMLCode2PDF />}
+            />
+            <Tab id="file" title={this.renderNabarTabTitle("file")} panel={<HTMLCode2PDF />} />
+            <Tab
+              id="url"
+              title={this.renderNabarTabTitle("url")}
+              panel={<HTMLCode2PDF />}
+            />
+            <Tabs.Expander />
+          </Tabs>
         </div>
       </div>
     );
   }
+
+  handleNavbarTabChange = navbarTabId => this.setState({ navbarTabId });
 }
 
 export default Home;

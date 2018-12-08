@@ -10,3 +10,7 @@ h5 {
   font-family: system, sans-serif;
   color: #333;
 }
+
+:focus {
+  outline: none !important;
+}
