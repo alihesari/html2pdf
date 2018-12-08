@@ -9,7 +9,7 @@ HTML2PDF converter is an open source React JS project. HTML2PDF helps you conver
 
 ## License
 This software is released under the
-[MIT License](http://sallar.mit-license.org/).
+[MIT License](http://alihesari.mit-license.org/).
 
 
 
