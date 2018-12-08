@@ -32,11 +32,6 @@ class Home extends Component {
 
   render() {
     return (
-      <div className="page">
-        <div className="pageHeader">
-          <h1>HTML to PDF</h1>
-          <h2>Convert web pages or HTML files to PDF documents</h2>
-        </div>
         <div className="htmlcode2pdf">
           <Tabs
             animate={true}
@@ -71,7 +66,6 @@ class Home extends Component {
             />
           </div>
         </div>
-      </div>
     );
   }
 

@@ -8,7 +8,13 @@ class Layout extends Component {
     return (
       <main className="main">
         <Toolbar />
-        <div className="container">{this.props.children}</div>
+        <div className="container">
+        <div className="page">
+        <div className="pageHeader">
+          <h1>HTML to PDF</h1>
+          <h2>Convert web pages or HTML files to PDF documents</h2>
+        </div>
+        {this.props.children}</div></div>
       </main>
     );
   }
