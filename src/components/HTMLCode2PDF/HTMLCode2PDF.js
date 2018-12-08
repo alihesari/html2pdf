@@ -90,6 +90,7 @@ class HTMLCode2PDF extends Component {
         <div className="preview">
           <IframeLoader
             id="previewIframe"
+            name="previewIframe"
             width="100%"
             height="500"
             onLoad={() =>

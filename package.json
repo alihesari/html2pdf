@@ -4,8 +4,6 @@
   "private": false,
   "dependencies": {
     "@blueprintjs/core": "^3.10.0",
-    "html2canvas": "^1.0.0-alpha.12",
-    "jspdf": "^1.4.1",
     "prop-types": "^15.6.2",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
