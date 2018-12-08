@@ -1,5 +1,5 @@
 export const print = (filename = "file.pdf") => {
-    document.getElementById("previewIframe").contentWindow.print();
+  document.getElementById("previewIframe").contentWindow.print();
 };
 
 export const injectHTML = htmlCode => {
@@ -17,4 +17,16 @@ export const injectHTML = htmlCode => {
     iframedoc.writeln(htmlCode);
     iframedoc.close();
   }
+};
+
+export const readHTMLFile = file => {
+  const content = new Promise((resolve, reject) => {
+    let fileReader = new FileReader();
+    fileReader.onloadend = e => {
+      resolve(fileReader.result);
+    };
+    fileReader.readAsText(file);
+  }).then(res => {
+    injectHTML(res);
+  });
 };

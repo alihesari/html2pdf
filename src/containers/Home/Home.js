@@ -2,7 +2,10 @@ import React, { Component } from "react";
 import { Tab, Tabs, Text, Icon } from "@blueprintjs/core";
 
 import "./Home.scss";
+import IframeLoader from "../../components/IframeLoader/IframeLoader";
 import HTMLCode2PDF from "../../components/HTMLCode2PDF/HTMLCode2PDF";
+import HTMLFile2PDF from "../../components/HTMLFile2PDF/HTMLFile2PDF";
+import Convert2PDF from "../../components/Convert2PDF/Convert2PDF";
 
 class Home extends Component {
   state = {
@@ -55,7 +58,11 @@ class Home extends Component {
               title={this.renderNabarTabTitle("code")}
               panel={<HTMLCode2PDF />}
             />
-            <Tab id="file" title={this.renderNabarTabTitle("file")} panel={<HTMLCode2PDF />} />
+            <Tab
+              id="file"
+              title={this.renderNabarTabTitle("file")}
+              panel={<HTMLFile2PDF />}
+            />
             <Tab
               id="url"
               title={this.renderNabarTabTitle("url")}
@@ -63,6 +70,18 @@ class Home extends Component {
             />
             <Tabs.Expander />
           </Tabs>
+          <Convert2PDF />
+          <div className="preview">
+            <IframeLoader
+              id="previewIframe"
+              name="previewIframe"
+              width="100%"
+              height="500"
+              onLoad={() =>
+                this.setState({ isLoading: false, iframeLoaded: true })
+              }
+            />
+          </div>
         </div>
       </div>
     );
