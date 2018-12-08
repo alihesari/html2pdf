@@ -1,6 +1,3 @@
-import jsPDF from "jspdf";
-import html2canvas from "html2canvas";
-
 export const print = (filename = "file.pdf") => {
     document.getElementById("previewIframe").contentWindow.print();
 };
