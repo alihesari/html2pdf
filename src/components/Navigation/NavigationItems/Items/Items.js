@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-import './Items.css';
+import './Items.scss';
 
 const Items = (props) => (
     <li className="items">

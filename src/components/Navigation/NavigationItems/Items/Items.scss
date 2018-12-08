@@ -4,11 +4,12 @@
 
 .items a{
     text-decoration: none;
-    color: #4A90E2;
+    color: #000;
 }
 
 .items a.active{
-    color: #094FA1;
+    color: #2196F3;
+    border-bottom: 3px solid #2196F3;
 }
 
 .items:hover a {
