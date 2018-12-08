@@ -28,11 +28,11 @@ class HTMLCode2PDF extends Component {
     );
   }
 
-  handleChange = event => {
-    handleFormChange(event.target.name, (fieldName, value) =>
+  handleChange = async event => {
+    await handleFormChange(event.target.name, (fieldName, value) =>
       this.setState({ [fieldName]: value })
     );
-
+    
     injectHTML(this.state.htmlcode);
   };
 }
