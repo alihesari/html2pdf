@@ -2,7 +2,6 @@
   "name": "html2pdf",
   "version": "0.1.0",
   "private": false,
-  "homepage": "http://alihesari.github.io/html2pdf",
   "dependencies": {
     "@blueprintjs/core": "^3.10.0",
     "fs": "^0.0.1-security",
